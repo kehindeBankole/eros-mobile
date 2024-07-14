@@ -11,6 +11,11 @@
 		7BCF4A532C42B6C40056BCDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF4A522C42B6C40056BCDA /* ContentView.swift */; };
 		7BCF4A552C42B6C50056BCDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF4A542C42B6C50056BCDA /* Assets.xcassets */; };
 		7BCF4A592C42B6C50056BCDA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF4A582C42B6C50056BCDA /* Preview Assets.xcassets */; };
+		7BCF4A622C42B6EF0056BCDA /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF4A612C42B6EF0056BCDA /* Onboarding.swift */; };
+		7BCF4A662C42C1F60056BCDA /* SansRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF4A632C42C1F60056BCDA /* SansRegular.ttf */; };
+		7BCF4A672C42C1F60056BCDA /* SansBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF4A642C42C1F60056BCDA /* SansBold.ttf */; };
+		7BCF4A682C42C1F60056BCDA /* SansMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF4A652C42C1F60056BCDA /* SansMedium.ttf */; };
+		7BCF4A6D2C42C3600056BCDA /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF4A6C2C42C3600056BCDA /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,12 @@
 		7BCF4A542C42B6C50056BCDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BCF4A562C42B6C50056BCDA /* ErosMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ErosMobile.entitlements; sourceTree = "<group>"; };
 		7BCF4A582C42B6C50056BCDA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7BCF4A612C42B6EF0056BCDA /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		7BCF4A632C42C1F60056BCDA /* SansRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SansRegular.ttf; sourceTree = "<group>"; };
+		7BCF4A642C42C1F60056BCDA /* SansBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SansBold.ttf; sourceTree = "<group>"; };
+		7BCF4A652C42C1F60056BCDA /* SansMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SansMedium.ttf; sourceTree = "<group>"; };
+		7BCF4A6A2C42C24D0056BCDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7BCF4A6C2C42C3600056BCDA /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +63,10 @@
 		7BCF4A4F2C42B6C40056BCDA /* ErosMobile */ = {
 			isa = PBXGroup;
 			children = (
+				7BCF4A6B2C42C34F0056BCDA /* Extensions */,
+				7BCF4A6A2C42C24D0056BCDA /* Info.plist */,
+				7BCF4A692C42C2040056BCDA /* Fonts */,
+				7BCF4A5F2C42B6D10056BCDA /* Screens */,
 				7BCF4A502C42B6C40056BCDA /* ErosMobileApp.swift */,
 				7BCF4A522C42B6C40056BCDA /* ContentView.swift */,
 				7BCF4A542C42B6C50056BCDA /* Assets.xcassets */,
@@ -67,6 +82,40 @@
 				7BCF4A582C42B6C50056BCDA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7BCF4A5F2C42B6D10056BCDA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7BCF4A602C42B6DE0056BCDA /* Onboarding */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		7BCF4A602C42B6DE0056BCDA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7BCF4A612C42B6EF0056BCDA /* Onboarding.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		7BCF4A692C42C2040056BCDA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7BCF4A642C42C1F60056BCDA /* SansBold.ttf */,
+				7BCF4A652C42C1F60056BCDA /* SansMedium.ttf */,
+				7BCF4A632C42C1F60056BCDA /* SansRegular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7BCF4A6B2C42C34F0056BCDA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7BCF4A6C2C42C3600056BCDA /* Font.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +178,9 @@
 			files = (
 				7BCF4A592C42B6C50056BCDA /* Preview Assets.xcassets in Resources */,
 				7BCF4A552C42B6C50056BCDA /* Assets.xcassets in Resources */,
+				7BCF4A672C42C1F60056BCDA /* SansBold.ttf in Resources */,
+				7BCF4A682C42C1F60056BCDA /* SansMedium.ttf in Resources */,
+				7BCF4A662C42C1F60056BCDA /* SansRegular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BCF4A6D2C42C3600056BCDA /* Font.swift in Sources */,
+				7BCF4A622C42B6EF0056BCDA /* Onboarding.swift in Sources */,
 				7BCF4A532C42B6C40056BCDA /* ContentView.swift in Sources */,
 				7BCF4A512C42B6C40056BCDA /* ErosMobileApp.swift in Sources */,
 			);
@@ -274,6 +328,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ErosMobile/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -312,6 +367,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ErosMobile/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

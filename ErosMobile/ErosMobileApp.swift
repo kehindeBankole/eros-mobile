@@ -11,7 +11,7 @@ import SwiftUI
 struct ErosMobileApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.font, .sansRegular())
         }
     }
 }
