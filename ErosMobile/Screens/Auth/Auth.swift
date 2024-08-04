@@ -11,7 +11,7 @@ struct Auth: View {
     @State private var email = "bankolek1@gmail.com"
     @FocusState private var emailFieldIsFocused: Bool
     @State private var showPassword = false
-    @State private var password = "Ayinke2013#"
+    @State private var password = "Password"
     @FocusState private var passFieldIsFocused: Bool
     @StateObject var authPath = AuthData()
     @State private var isLoading = false
