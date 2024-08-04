@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Auth: View {
-    @State private var email = "bankolek1@gmail.com"
+    @State private var email = "email@gmail.com"
     @FocusState private var emailFieldIsFocused: Bool
     @State private var showPassword = false
     @State private var password = "Password"
