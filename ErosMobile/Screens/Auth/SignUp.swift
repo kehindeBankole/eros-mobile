@@ -17,10 +17,10 @@ struct SignUp: View {
     @FocusState private var firstNameFieldIsFocused: Bool
     @State private var lastName = "bankole"
     @FocusState private var lastNameFieldIsFocused: Bool
-    @State private var email = "bankolek1@gmail.com"
+    @State private var email = "email@gmail.com"
     @FocusState private var emailFieldIsFocused: Bool
     @State private var showPassword = false
-    @State private var password = "Ayinke2013#"
+    @State private var password = "Password#"
     @FocusState private var passFieldIsFocused: Bool
     @ObservedObject var authPath : AuthData
     @State private var isLoading = false
