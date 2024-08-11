@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct Auth: View {
+
     @State private var email = ""
-    @State private var showPassword = false
     @State private var password = ""
     @StateObject var authPath = AuthData()
     @State private var isLoading = false

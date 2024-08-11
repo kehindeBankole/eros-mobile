@@ -12,11 +12,9 @@ enum alertType {
     case success
 }
 struct SignUp: View {
-    
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var email = ""
-    @State private var showPassword = false
     @State private var password = ""
     @ObservedObject var authPath : AuthData
     @State private var isLoading = false
