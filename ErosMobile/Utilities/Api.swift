@@ -27,6 +27,13 @@ struct GenericErrorResponse: Decodable {
     let message: String?
 }
 
+let baseUrl: String = {
+    guard let url = ProcessInfo.processInfo.environment["BASE_URL"] else {
+        fatalError("BASE_URL not set")
+    }
+    return url
+}()
+
 func makeApiCall<T : Decodable , P : Encodable>(endpoint: String, method: HTTPMethod, body: P? = nil) async throws -> T?  {
     @AppStorage("token") var token: String = ""
     if let url = URL(string:  endpoint) {

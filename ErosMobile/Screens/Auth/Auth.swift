@@ -8,18 +8,13 @@
 import SwiftUI
 
 struct Auth: View {
-    @State private var email = "bankolek1@gmail.com"
-    @FocusState private var emailFieldIsFocused: Bool
+    @State private var email = ""
     @State private var showPassword = false
-    @State private var password = "Ayinke2013#"
-    @FocusState private var passFieldIsFocused: Bool
+    @State private var password = ""
     @StateObject var authPath = AuthData()
     @State private var isLoading = false
-    let baseUrl = "http://localhost:5099/api/"
     @State private var alertMessage = ""
     @State private var showAlert = false
-   // @AppStorage("userData") private var userData:SignUpResponseData?
-
     
     func submitForm() async {
         do{
@@ -27,7 +22,6 @@ struct Auth: View {
             let data : LoginResponse? = try await makeApiCall(endpoint: baseUrl + "auth/login", method: .post , body: LoginPayload(email: email, password: password))
             if(data != nil){
                 LocalStorage.saveDataToAppStorage(data?.data , key: "userData")
-//                userData = data!.data
             }
             
             authPath.authPath.append("layout")
@@ -54,16 +48,13 @@ struct Auth: View {
                         Text("Welcome back").font(.sansMedium(size: 28))
                         Text("Let’s get you logged in to get back to managing your estate")
                     } .frame(maxWidth: .infinity, alignment: .leading)
-                        .alert("\(alertMessage)", isPresented: $showAlert , actions: {
-                            //
-                        })
+                     
                     VStack(spacing : 20){
 
+                        AppTextField(prop: AppTextFieldModel(value: $email, label: "Email address"))
                         
-                        AppTextField(prop: AppTextFieldModel(value: email, label: "Email address"))
                         
-                        
-                        AppTextField(prop: AppTextFieldModel(value: password, label: "Password" , isPassword: true))
+                        AppTextField(prop: AppTextFieldModel(value: $password, label: "Password" , isPassword: true))
                         
                         Button(action: {
                             Task{
@@ -71,7 +62,7 @@ struct Auth: View {
                             }
                         }, label: {
                             isLoading ? AnyView(ProgressView()) : AnyView(Text("Sign in"))
-                        }).buttonStyle(CustomButtonStyle(type: .primary))    .disabled(email.isEmpty || password.isEmpty)
+                        }).buttonStyle(CustomButtonStyle(type: .primary)).disabled(email.isEmpty || password.isEmpty)
                         
                     }
                     Spacer()
@@ -94,6 +85,7 @@ struct Auth: View {
                 Text("Don't have an account? Sign up")
             })
             .padding(.bottom)
+            .alertSheet(isPresented: $showAlert , alertMessage: alertMessage , alertType: .error)
         }
     }
 }

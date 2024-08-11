@@ -8,34 +8,37 @@
 import SwiftUI
 
 struct AppTextFieldModel{
-    var value : String
+    @Binding var value : String
     let label : String
     let isPassword : Bool
     
-    init(value: String, label: String, isPassword: Bool = false) {
-        self.value = value
+    init(value: Binding<String>, label: String, isPassword: Bool = false) {
+        self._value = value
         self.label = label
         self.isPassword = isPassword
     }
 }
 
 struct AppTextField: View {
-    @State var prop : AppTextFieldModel
-    @FocusState private var fieldIsFocused: Bool
+    var prop : AppTextFieldModel
+    @FocusState private var fieldIsFocused
     @State private var showPassword = false
     
     var body: some View {
         if(prop.isPassword == false){
             ZStack(alignment: .leading){
-                
+            
                 HStack{
                     Text(prop.label)
                         .font(.sansRegular(size: 12))
                         .padding(.horizontal , 10)
-                }.background(.white).offset(y: fieldIsFocused == false && prop.value == "" ? 0 : -25).animation(.default, value: fieldIsFocused == true)
+                }
+                .background(.white)
+                .offset(y: fieldIsFocused || !prop.value.isEmpty ? -25 : 0)
+                .animation(.easeInOut, value: fieldIsFocused == true)
                 
                 
-                TextField("", text: $prop.value).focused($fieldIsFocused).textInputAutocapitalization(.never)
+                TextField("", text: prop.$value).focused($fieldIsFocused).textInputAutocapitalization(.never)
             }   .padding(15)
                 .background(
                     RoundedRectangle(cornerRadius: 5)
@@ -50,11 +53,14 @@ struct AppTextField: View {
                         Text("Password")
                             .font(.sansRegular(size: 12))
                             .padding(.horizontal , 10)
-                    }.background(.white).offset(y:fieldIsFocused == false && prop.value == "" ? 0 : -25).animation(.default, value:fieldIsFocused == true)
+                    }
+                    .background(.white)
+                    .offset(y: fieldIsFocused || !prop.value.isEmpty ? -25 : 0)
+                    .animation(.easeInOut, value:fieldIsFocused == true)
                     if(showPassword){
-                        TextField("", text: $prop.value).focused($fieldIsFocused).textInputAutocapitalization(.never)
+                        TextField("", text: prop.$value).focused($fieldIsFocused).textInputAutocapitalization(.never)
                     }else{
-                        SecureField("", text: $prop.value ).focused($fieldIsFocused).textInputAutocapitalization(.never)
+                        SecureField("", text: prop.$value ).focused($fieldIsFocused).textInputAutocapitalization(.never)
                     }
                 }
                 
@@ -80,5 +86,10 @@ struct AppTextField: View {
 }
 
 #Preview {
-    AppTextField(prop: AppTextFieldModel(value: "", label: "label" , isPassword: true))
+    VStack{
+        AppTextField(prop: AppTextFieldModel(value: .constant(""), label: "label" , isPassword: false))
+        TextField("" , text: .constant("ksk"))
+//
+//        AppTextField(prop: AppTextFieldModel(value: .constant(""), label: "label" , isPassword: true))
+    }
 }

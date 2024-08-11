@@ -13,18 +13,13 @@ enum alertType {
 }
 struct SignUp: View {
     
-    @State private var firstName = "kehinde"
-    @FocusState private var firstNameFieldIsFocused: Bool
-    @State private var lastName = "bankole"
-    @FocusState private var lastNameFieldIsFocused: Bool
-    @State private var email = "bankolek1@gmail.com"
-    @FocusState private var emailFieldIsFocused: Bool
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @State private var email = ""
     @State private var showPassword = false
-    @State private var password = "Ayinke2013#"
-    @FocusState private var passFieldIsFocused: Bool
+    @State private var password = ""
     @ObservedObject var authPath : AuthData
     @State private var isLoading = false
-    let baseUrl = "http://localhost:5099/api/"
     @State private var alertMessage = ""
     @State private var showAlert = false
     @AppStorage("token") var token = ""
@@ -65,19 +60,16 @@ struct SignUp: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                 }
-                .alert("\(alertMessage)", isPresented: $showAlert , actions: {
-                    //
-                })
                 VStack(spacing : 20){
                     VStack(spacing: 20) {
                         
-                        AppTextField(prop: AppTextFieldModel(value: firstName, label: "First Name"))
+                        AppTextField(prop: AppTextFieldModel(value: $firstName, label: "First Name"))
                         
-                        AppTextField(prop: AppTextFieldModel(value:lastName, label: "Last Name"))
+                        AppTextField(prop: AppTextFieldModel(value:$lastName, label: "Last Name"))
                         
-                        AppTextField(prop: AppTextFieldModel(value: email, label: "Email address"))
+                        AppTextField(prop: AppTextFieldModel(value: $email, label: "Email address"))
                         
-                        AppTextField(prop: AppTextFieldModel(value: password, label: "Password" , isPassword: true))
+                        AppTextField(prop: AppTextFieldModel(value: $password, label: "Password" , isPassword: true))
                         
                     }
                     
@@ -101,7 +93,7 @@ struct SignUp: View {
             }
             .padding()
             .navigationBarBackButtonHidden(true)
-            
+            .alertSheet(isPresented: $showAlert , alertMessage: alertMessage , alertType: .error)
             Spacer()
         }
     }
